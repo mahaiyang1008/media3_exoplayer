@@ -17,11 +17,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.3.2'
+        classpath 'com.android.tools.build:gradle:8.8.1'
         classpath 'com.google.android.gms:strict-version-matcher-plugin:1.2.4'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.20'
         classpath 'org.jetbrains.kotlin:compose-compiler-gradle-plugin:2.0.20'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 allprojects {
@@ -41,27 +40,5 @@ allprojects {
         }
         buildDir = "${externalBuildDir}/${project.name}"
     }
-    group = 'com.github.mahaiyang1008'
-    version = '1.0.0'
-    
-    apply plugin: 'maven-publish'
-    
-    tasks.withType(JavaCompile) {
-        options.encoding = 'UTF-8'
-    }
-}
-
-subprojects {
-    afterEvaluate { project ->
-        if (project.hasProperty('android')) {
-            android {
-                compileSdkVersion 34
-                
-                defaultConfig {
-                    minSdkVersion 21
-                    targetSdkVersion 34
-                }
-            }
-        }
-    }
+    group = 'androidx.media3'
 }

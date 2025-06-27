@@ -594,8 +594,10 @@ public class TsExtractor implements Extractor {
     if (endOfPacket > limit) {
       bytesSinceLastSync += syncBytePosition - searchStart;
       if (mode == MODE_HLS && bytesSinceLastSync > TS_PACKET_SIZE * 2) {
-        throw ParserException.createForMalformedContainer(
-            "Cannot find sync byte. Most likely not a Transport Stream.", /* cause= */ null);
+       // throw ParserException.createForMalformedContainer(
+       //     "Cannot find sync byte. Most likely not a Transport Stream.", /* cause= */ null);
+        bytesSinceLastSync = 0;
+        return limit;
       }
     } else {
       // We have found a packet within the buffer.
