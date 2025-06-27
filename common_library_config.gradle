@@ -31,7 +31,7 @@ android {
 
     lintOptions {
         checkTestSources true
-        disable "InlinedApi", "ObsoleteSdkInt", "NewApi", "UnusedAttribute"
+        disable "InlinedApi", "ObsoleteSdkInt", "NewApi", "UnusedAttribute", "UnsafeOptInUsageError"
     }
 
     compileOptions {
