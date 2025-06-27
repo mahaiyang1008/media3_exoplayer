@@ -1,6 +1,7 @@
 jdk:
-  - openjdk11
+  - openjdk17
 before_install:
-  - ./gradlew clean
+  - sdk install java 17.0.2-open
+  - sdk use java 17.0.2-open
 install:
   - ./gradlew build publishToMavenLocal -x test 
