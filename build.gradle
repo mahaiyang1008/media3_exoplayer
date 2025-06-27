@@ -23,6 +23,10 @@ buildscript {
         classpath 'org.jetbrains.kotlin:compose-compiler-gradle-plugin:2.0.20'
     }
 }
+
+// JitPack 分模块支持配置
+apply plugin: 'maven-publish'
+
 allprojects {
     repositories {
         google()
@@ -41,4 +45,23 @@ allprojects {
         buildDir = "${externalBuildDir}/${project.name}"
     }
     group = 'androidx.media3'
+    
+    // 为 JitPack 配置版本
+    version = findProperty('VERSION_NAME') ?: '1.0.0'
+}
+
+// 根项目发布配置 - 用于 JitPack 识别
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.mahaiyang1008'
+            artifactId = 'media_exo'
+            version = findProperty('VERSION_NAME') ?: '1.0.0'
+            
+            pom {
+                name = 'AndroidX Media3'
+                description = 'AndroidX Media3 library with modular support'
+            }
+        }
+    }
 }
