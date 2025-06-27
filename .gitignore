@@ -90,8 +90,3 @@ libraries/decoder_iamf/src/main/jni/libiamf
 libraries/decoder_mpegh/src/main/jni/libmpegh
 
 # 项目排除路径
-/.github/
-/demos/
-/gradle/
-/libraries/
-/testapps/

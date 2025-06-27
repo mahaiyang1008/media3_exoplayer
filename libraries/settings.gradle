@@ -1,0 +1,4 @@
+include ':media3-lib-common'
+include ':media3-lib-exoplayer'
+include ':media3-lib-exoplayer-hls'
+include ':media3-lib-ui' 
