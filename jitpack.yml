@@ -5,11 +5,12 @@ jdk:
 env:
   GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-Xmx3g -XX:MaxMetaspaceSize=512m"'
 
-# 改进的安装配置 - 确保分模块正确发布
+# 专门为分模块配置的安装脚本
 install:
-  - echo "Publishing all modules to Maven Local..."
-  - ./gradlew clean publishToMavenLocal -x test --parallel --info
-  - echo "Listing published artifacts..."
-  - find ~/.m2/repository -name "*.aar" -o -name "*.jar" | grep -E "(media3|androidx)" | head -20
+  - echo "Starting modular build for JitPack..."
+  - ./gradlew clean
+  - ./gradlew publishToMavenLocal -PpublishAllModules=true -x test --parallel --info
+  - echo "Build completed. Checking published modules..."
+  - find ~/.m2/repository -name "*.aar" | grep -v test | head -10
 
 # 确保 JitPack 能正确识别各个模块 
