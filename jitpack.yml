@@ -1,7 +1,12 @@
 jdk:
   - openjdk17
-before_install:
-  - sdk install java 17.0.2-open
-  - sdk use java 17.0.2-open
+
+# 配置环境变量
+env:
+  GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-Xmx3g -XX:MaxMetaspaceSize=512m"'
+
+# 安装配置 - 发布所有模块到本地 Maven 仓库
 install:
-  - ./gradlew build publishToMavenLocal -x test 
+  - ./gradlew publishToMavenLocal -x test --parallel
+
+# JitPack 会自动识别和发布各个模块 
