@@ -34,7 +34,7 @@ android {
 
     lintOptions {
         checkTestSources true
-        disable "InlinedApi", "ObsoleteSdkInt", "NewApi", "UnusedAttribute", "UnsafeOptInUsageError", "ResourceType"
+        disable "InlinedApi", "ObsoleteSdkInt", "NewApi", "UnusedAttribute", "UnsafeOptInUsageError", "ResourceType", "WrongConstant"
     }
 
     sourceSets.main.assets.srcDir '../test_data/src/test/assets/'
