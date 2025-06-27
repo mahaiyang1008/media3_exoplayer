@@ -54,7 +54,8 @@ android {
 
     lintOptions {
         // The test app isn't indexed, and doesn't have translations.
-        disable 'GoogleAppIndexingWarning','MissingTranslation'
+        disable 'GoogleAppIndexingWarning','MissingTranslation', 'InlinedApi', 'ObsoleteSdkInt', 'NewApi', 'UnusedAttribute', 'UnsafeOptInUsageError'
+        checkTestSources true
     }
 }
 

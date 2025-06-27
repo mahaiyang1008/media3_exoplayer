@@ -32,6 +32,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    lintOptions {
+        checkTestSources true
+        disable "InlinedApi", "ObsoleteSdkInt", "NewApi", "UnusedAttribute", "UnsafeOptInUsageError"
+    }
+
     sourceSets.main.assets.srcDir '../test_data/src/test/assets/'
 }
 
